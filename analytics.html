@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mere Macaroon - A little French. A little Desi. A little Sweet.">
+    <title>Mere Macaroon | Analytics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cursive', sans-serif;
+            background-color: #fff;
+            color: #5a5a5a;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #f8c9d1;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid #f78e7c;
+            margin-bottom: 40px;
+        }
+
+        header .logo img {
+            width: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        header p {
+            font-size: 20px;
+            color: #f78e7c;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        header nav ul li {
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #5a5a5a;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover {
+            color: #f78e7c;
+        }
+
+        .chart-container {
+            max-width: 900px;
+            margin: 20px auto;
+        }
+
+        .chart-container canvas {
+            width: 100%;
+        }
+
+        footer {
+            background-color: #f8c9d1;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 16px;
+            color: #5a5a5a;
+        }
+
+        footer a {
+            color: #5a5a5a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #f78e7c;
+        }
+
+        .analytics-header {
+            font-size: 1.2em;
+            color: #5a5a5a;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .analytics-header h1 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .analytics-header p {
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="4.png" alt="Mere Macaroon Logo">
+        </div>
+        <p>A little French. A little Desi. A little Sweet.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="crud.html">Order Macaroons</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="analytics-header">
+            <h1>Mere Macaroon Analytics</h1>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="orderChart"></canvas>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mere Macaroon | Designed by Anisha Nazrul</p>
+    </footer>
+
+    <script>
+        function updateChartData(orders) {
+            const flavorsCount = {};
+            orders.forEach(order => {
+                flavorsCount[order.flavor] = (flavorsCount[order.flavor] || 0) + order.quantity;
+            });
+
+            const chartLabels = Object.keys(flavorsCount);
+            const chartData = Object.values(flavorsCount);
+
+            const ctx = document.getElementById('orderChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        label: 'Macaroons Ordered by Flavor',
+                        data: chartData,
+                        backgroundColor: '#f78e7c',
+                        borderColor: '#f78e7c',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        window.onload = function () {
+            const orders = JSON.parse(localStorage.getItem('orders')) || [];
+            updateChartData(orders);
+        };
+    </script>
+</body>
+
+</html>

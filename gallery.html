@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mere Macaroon - A little French. A little Desi. A little Sweet.">
+    <title>Mere Macaroon | Gallery</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cursive', sans-serif;
+            background-color: #fff;
+            color: #5a5a5a;
+            line-height: 1.6;
+        }
+
+        
+        header {
+            background-color: #f8c9d1;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 5px solid #f78e7c;
+            margin-bottom: 40px;
+        }
+
+        header .logo img {
+            width: 200px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        header p {
+            font-size: 20px;
+            color: #f78e7c;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        header nav ul li {
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #5a5a5a;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        header nav ul li a:hover {
+            color: #f78e7c;
+        }
+
+       
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        .gallery img {
+            width: 100%;
+            border: 5px solid #f78e7c;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        
+        footer {
+            background-color: #f8c9d1;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 16px;
+            color: #5a5a5a;
+        }
+
+        footer a {
+            color: #5a5a5a;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #f78e7c;
+        }
+    </style>
+</head>
+
+<body>
+  
+    <header>
+        <div class="logo">
+            <img src="4.png" alt="Mere Macaroon Logo">
+        </div>
+        <p>A little French. A little Desi. A little Sweet.</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="crud.html">Order Macaroons</a></li>
+                <li><a href="analytics.html">Analytics</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+ 
+    <div class="gallery">
+        <img src="M1.jpeg" alt="Macaroon 1">
+        <img src="M2.jpeg" alt="Macaroon 2">
+        <img src="M3.jpeg" alt="Macaroon 3">
+        <img src="M5.jpeg" alt="Macaroon 4">
+    </div>
+
+  
+    <footer>
+        <p>&copy; 2024 Mere Macaroon | Designed by Anisha Nazrul</p>
+    </footer>
+</body>
+
+</html>
