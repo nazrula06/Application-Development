@@ -1,0 +1,1 @@
+Projects done using html and javascript in my Application Development for Analytics Course taught by Dr. Clinton Daniel at University of South Florida in Global Online Master of Science in Artificial Intelligence (AI) and Business Analytics.
